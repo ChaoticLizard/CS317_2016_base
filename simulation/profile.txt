@@ -1,0 +1,661 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 32.15     16.66    16.66 71567040     0.00     0.00  mRNA_synthesis(sim_data&, double**, con_levels&, st_context&, int*, mutant_data&, bool, bool)
+ 26.34     30.31    13.65 71567040     0.00     0.00  protein_synthesis(sim_data&, double**, con_levels&, st_context&, int*)
+ 17.41     39.33     9.02      480     0.02     0.02  get_peaks_and_troughs1(sim_data&, con_levels&, int, int, growin_array&, growin_array&, growin_array&, int)
+  6.93     42.92     3.59      120     0.03     0.03  get_peaks_and_troughs2(sim_data&, con_levels&, int, int, growin_array&, growin_array&, growin_array&, int, double*, double*, double*)
+  5.32     45.68     2.76 71567040     0.00     0.00  calculate_delay_indices(sim_data&, con_levels&, int, int, int, double**, int*, int*)
+  4.59     48.06     2.38 71567040     0.00     0.00  dimer_proteins(sim_data&, double**, con_levels&, st_context&)
+  1.89     49.04     0.98   558012     0.00     0.00  baby_to_cl(con_levels&, con_levels&, int, int)
+  1.81     49.98     0.94       12     0.08     0.08  print_concentrations(input_params&, sim_data&, con_levels&, mutant_data&, char*, int)
+  0.85     50.42     0.44       12     0.04     3.07  model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*)
+  0.52     50.69     0.27       12     0.02     4.28  simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*)
+  0.52     50.96     0.27        2     0.14    25.81  simulate_section(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, char**, double*)
+  0.42     51.18     0.22        6     0.04     0.04  copy_cl_to_mutant(sim_data&, con_levels&, mutant_data&)
+  0.41     51.39     0.21        6     0.04     0.04  copy_mutant_to_cl(sim_data&, con_levels&, mutant_data&)
+  0.27     51.53     0.14        6     0.02     0.02  osc_features_post(sim_data&, input_params&, con_levels&, features&, features&, char*, int, int, int)
+  0.17     51.62     0.09        1     0.09    51.70  simulate_param_set(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*)
+  0.08     51.66     0.04        6     0.01     0.01  print_cell_columns(input_params&, sim_data&, con_levels&, char*, int)
+  0.08     51.70     0.04                             calc_neighbors_1d(sim_data&, int*, int, int, int)
+  0.08     51.74     0.04                             create_mutant_data(sim_data&, input_params&)
+  0.06     51.77     0.03                             simulate_all_params(input_params&, rates&, sim_data&, double**, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*)
+  0.04     51.79     0.02      642     0.00     0.00  update_rates(rates&, int)
+  0.03     51.80     0.02        2     0.01     0.01  reset_mutant_scores(input_params&, mutant_data*)
+  0.02     51.81     0.01  1342885     0.00     0.00  mallocate(unsigned long)
+  0.02     51.82     0.01      540     0.00     0.00  pearson_correlation(double*, double*, int, int)
+  0.00     51.82     0.00  1342498     0.00     0.00  operator delete[](void*)
+  0.00     51.82     0.00  1342300     0.00     0.00  operator new[](unsigned long)
+  0.00     51.82     0.00   462920     0.00     0.00  random_double(std::pair<double, double>)
+  0.00     51.82     0.00     5688     0.00     0.00  random_int(std::pair<int, int>)
+  0.00     51.82     0.00     3748     0.00     0.00  anterior_time(sim_data&, int)
+  0.00     51.82     0.00      630     0.00     0.00  perturb_rates_column(sim_data&, rates&, int)
+  0.00     51.82     0.00      630     0.00     0.00  split(sim_data&, rates&, con_levels&, int, int)
+  0.00     51.82     0.00      330     0.00     0.00  avg_amp(sim_data&, con_levels&, int, int, int, int)
+  0.00     51.82     0.00      240     0.00     0.00  test_compl(sim_data&, double*, double*)
+  0.00     51.82     0.00      180     0.00     0.00  std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_erase(std::_Rb_tree_node<std::pair<int const, double> >*)
+  0.00     51.82     0.00      100     0.00     0.00  ant_sync(sim_data&, con_levels&, int, int)
+  0.00     51.82     0.00       96     0.00     0.00  mfree(void*)
+  0.00     51.82     0.00       88     0.00     0.00  option_set(char const*, char const*, char const*)
+  0.00     51.82     0.00       59     0.00     0.00  operator new(unsigned long)
+  0.00     51.82     0.00       54     0.00     0.00  operator delete(void*)
+  0.00     51.82     0.00       53     0.00     0.00  std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, double> >, int const&)
+  0.00     51.82     0.00       48     0.00     0.00  std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_unique_pos(int const&)
+  0.00     51.82     0.00       39     0.00     0.00  not_EOL(char)
+  0.00     51.82     0.00       38     0.00     0.00  copy_str(char const*)
+  0.00     51.82     0.00       31     0.00     0.00  std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > >::operator[](int const&)
+  0.00     51.82     0.00       20     0.00     0.00  perturb_rates_all(rates&)
+  0.00     51.82     0.00       18     0.00     0.00  open_file(std::basic_ofstream<char, std::char_traits<char> >*, char*, bool)
+  0.00     51.82     0.00       12     0.00     0.00  reset_seed(input_params&, sim_data&)
+  0.00     51.82     0.00       12     0.00     0.00  calc_neighbors_2d(sim_data&)
+  0.00     51.82     0.00        7     0.00     0.00  create_dir(char*)
+  0.00     51.82     0.00        6     0.00     2.10  osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int)
+  0.00     51.82     0.00        5     0.00     0.00  wave_testing(sim_data&, con_levels&, mutant_data&, int, int, int)
+  0.00     51.82     0.00        5     0.00     0.00  test_wildtype_wave(std::pair<int, int>*, int, mutant_data&, int, int)
+  0.00     51.82     0.00        4     0.00     0.00  close_if_open(std::basic_ofstream<char, std::char_traits<char> >*)
+  0.00     51.82     0.00        4     0.00     0.00  store_filename(char**, char const*)
+  0.00     51.82     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z18test_wildtype_postR11mutant_dataR8features
+  0.00     51.82     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z19simulate_all_paramsR12input_paramsR5ratesR8sim_dataPPdP11mutant_dataPSt14basic_ofstreamIcSt11char_traitsIcEESD_PPcSD_SD_
+  0.00     51.82     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z22get_peaks_and_troughs1R8sim_dataR10con_levelsiiR12growin_arrayS4_S4_i
+  0.00     51.82     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z6is_nand
+  0.00     51.82     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z7not_EOLc
+  0.00     51.82     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z9mallocatem
+  0.00     51.82     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00     51.82     0.00        1     0.00     0.00  _GLOBAL__sub_I_term
+  0.00     51.82     0.00        1     0.00     0.00  print_scores(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, int, double*, double)
+  0.00     51.82     0.00        1     0.00     0.00  parse_param_line(double*, char*, int&)
+  0.00     51.82     0.00        1     0.00     0.00  print_conditions(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, mutant_data*, int)
+  0.00     51.82     0.00        1     0.00     0.00  test_wildtype_ant(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  print_osc_features(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, mutant_data*, int, int)
+  0.00     51.82     0.00        1     0.00     0.00  test_wildtype_post(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  determine_set_passed(sim_data&, int, double)
+  0.00     51.82     0.00        1     0.00     0.00  test_DAPT_mutant_ant(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  test_DAPT_mutant_post(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  test_delta_mutant_ant(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  test_delta_mutant_post(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  test_her1over_mutant_ant(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  test_her7over_mutant_ant(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  test_MESPAOVER_mutant_ant(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  test_her1over_mutant_post(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  test_her7over_mutant_post(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  test_MESPAOVER_mutant_post(mutant_data&, features&)
+  0.00     51.82     0.00        1     0.00     0.00  read_file(input_data*)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.02% of 51.82 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     99.8    0.03   51.71                 simulate_all_params(input_params&, rates&, sim_data&, double**, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [1]
+                0.09   51.61       1/1           simulate_param_set(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [2]
+                0.00    0.00  601693/1342300     operator new[](unsigned long) [25]
+                0.00    0.00  601693/1342498     operator delete[](void*) [50]
+                0.00    0.00       1/1           determine_set_passed(sim_data&, int, double) [87]
+-----------------------------------------------
+                0.09   51.61       1/1           simulate_all_params(input_params&, rates&, sim_data&, double**, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [1]
+[2]     99.8    0.09   51.61       1         simulate_param_set(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [2]
+                0.27   51.34       2/2           simulate_section(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, char**, double*) [3]
+                0.00    0.00       1/1           print_osc_features(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, mutant_data*, int, int) [85]
+                0.00    0.00       1/1           print_conditions(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, mutant_data*, int) [83]
+                0.00    0.00       1/1           print_scores(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, int, double*, double) [81]
+-----------------------------------------------
+                0.27   51.34       2/2           simulate_param_set(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [2]
+[3]     99.6    0.27   51.34       2         simulate_section(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, char**, double*) [3]
+                0.27   51.06      12/12          simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+                0.02    0.00       2/2           reset_mutant_scores(input_params&, mutant_data*) [22]
+-----------------------------------------------
+                0.27   51.06      12/12          simulate_section(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, char**, double*) [3]
+[4]     99.0    0.27   51.06      12         simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+                0.44   36.45      12/12          model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+                0.00   12.62       6/6           osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+                0.94    0.00      12/12          print_concentrations(input_params&, sim_data&, con_levels&, mutant_data&, char*, int) [14]
+                0.22    0.00       6/6           copy_cl_to_mutant(sim_data&, con_levels&, mutant_data&) [15]
+                0.21    0.00       6/6           copy_mutant_to_cl(sim_data&, con_levels&, mutant_data&) [16]
+                0.14    0.00       6/6           osc_features_post(sim_data&, input_params&, con_levels&, features&, features&, char*, int, int, int) [17]
+                0.04    0.00       6/6           print_cell_columns(input_params&, sim_data&, con_levels&, char*, int) [19]
+                0.00    0.00       1/1           test_DAPT_mutant_ant(mutant_data&, features&) [35]
+                0.00    0.00       1/1           test_her7over_mutant_ant(mutant_data&, features&) [36]
+                0.00    0.00       1/1           test_her1over_mutant_ant(mutant_data&, features&) [38]
+                0.00    0.00      12/12          reset_seed(input_params&, sim_data&) [67]
+                0.00    0.00      12/20          perturb_rates_all(rates&) [65]
+                0.00    0.00      12/12          calc_neighbors_2d(sim_data&) [68]
+                0.00    0.00       5/5           wave_testing(sim_data&, con_levels&, mutant_data&, int, int, int) [70]
+                0.00    0.00       1/1           test_MESPAOVER_mutant_ant(mutant_data&, features&) [91]
+                0.00    0.00       1/1           test_delta_mutant_ant(mutant_data&, features&) [89]
+                0.00    0.00       1/1           test_wildtype_ant(mutant_data&, features&) [84]
+                0.00    0.00       1/1           test_MESPAOVER_mutant_post(mutant_data&, features&) [94]
+                0.00    0.00       1/1           test_DAPT_mutant_post(mutant_data&, features&) [88]
+                0.00    0.00       1/1           test_her1over_mutant_post(mutant_data&, features&) [92]
+                0.00    0.00       1/1           test_her7over_mutant_post(mutant_data&, features&) [93]
+                0.00    0.00       1/1           test_delta_mutant_post(mutant_data&, features&) [90]
+                0.00    0.00       1/1           test_wildtype_post(mutant_data&, features&) [86]
+-----------------------------------------------
+                0.44   36.45      12/12          simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[5]     71.2    0.44   36.45      12         model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+               16.66    0.00 71567040/71567040     mRNA_synthesis(sim_data&, double**, con_levels&, st_context&, int*, mutant_data&, bool, bool) [6]
+               13.65    0.00 71567040/71567040     protein_synthesis(sim_data&, double**, con_levels&, st_context&, int*) [7]
+                2.76    0.00 71567040/71567040     calculate_delay_indices(sim_data&, con_levels&, int, int, int, double**, int*, int*) [11]
+                2.38    0.00 71567040/71567040     dimer_proteins(sim_data&, double**, con_levels&, st_context&) [12]
+                0.98    0.00  558012/558012      baby_to_cl(con_levels&, con_levels&, int, int) [13]
+                0.02    0.00     642/642         update_rates(rates&, int) [21]
+                0.00    0.00     630/630         split(sim_data&, rates&, con_levels&, int, int) [55]
+                0.00    0.00       8/20          perturb_rates_all(rates&) [65]
+-----------------------------------------------
+               16.66    0.00 71567040/71567040     model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+[6]     32.1   16.66    0.00 71567040         mRNA_synthesis(sim_data&, double**, con_levels&, st_context&, int*, mutant_data&, bool, bool) [6]
+-----------------------------------------------
+               13.65    0.00 71567040/71567040     model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+[7]     26.3   13.65    0.00 71567040         protein_synthesis(sim_data&, double**, con_levels&, st_context&, int*) [7]
+-----------------------------------------------
+                0.00   12.62       6/6           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[8]     24.4    0.00   12.62       6         osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+                9.02    0.00     480/480         get_peaks_and_troughs1(sim_data&, con_levels&, int, int, growin_array&, growin_array&, growin_array&, int) [9]
+                3.59    0.00     120/120         get_peaks_and_troughs2(sim_data&, con_levels&, int, int, growin_array&, growin_array&, growin_array&, int, double*, double*, double*) [10]
+                0.00    0.01     100/100         ant_sync(sim_data&, con_levels&, int, int) [26]
+                0.00    0.00     240/540         pearson_correlation(double*, double*, int, int) [24]
+                0.00    0.00      42/59          operator new(unsigned long) [27]
+                0.00    0.00      18/1342300     operator new[](unsigned long) [25]
+                0.00    0.00       6/1342885     mallocate(unsigned long) [23]
+                0.00    0.00      31/31          std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > >::operator[](int const&) [34]
+                0.00    0.00    3742/3748        anterior_time(sim_data&, int) [53]
+                0.00    0.00     330/330         avg_amp(sim_data&, con_levels&, int, int, int, int) [56]
+                0.00    0.00     240/240         test_compl(sim_data&, double*, double*) [57]
+                0.00    0.00      42/53          std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, double> >, int const&) [62]
+                0.00    0.00      18/1342498     operator delete[](void*) [50]
+                0.00    0.00       6/96          mfree(void*) [59]
+-----------------------------------------------
+                9.02    0.00     480/480         osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+[9]     17.4    9.02    0.00     480         get_peaks_and_troughs1(sim_data&, con_levels&, int, int, growin_array&, growin_array&, growin_array&, int) [9]
+-----------------------------------------------
+                3.59    0.00     120/120         osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+[10]     6.9    3.59    0.00     120         get_peaks_and_troughs2(sim_data&, con_levels&, int, int, growin_array&, growin_array&, growin_array&, int, double*, double*, double*) [10]
+-----------------------------------------------
+                2.76    0.00 71567040/71567040     model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+[11]     5.3    2.76    0.00 71567040         calculate_delay_indices(sim_data&, con_levels&, int, int, int, double**, int*, int*) [11]
+-----------------------------------------------
+                2.38    0.00 71567040/71567040     model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+[12]     4.6    2.38    0.00 71567040         dimer_proteins(sim_data&, double**, con_levels&, st_context&) [12]
+-----------------------------------------------
+                0.98    0.00  558012/558012      model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+[13]     1.9    0.98    0.00  558012         baby_to_cl(con_levels&, con_levels&, int, int) [13]
+-----------------------------------------------
+                0.94    0.00      12/12          simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[14]     1.8    0.94    0.00      12         print_concentrations(input_params&, sim_data&, con_levels&, mutant_data&, char*, int) [14]
+                0.00    0.00      24/1342885     mallocate(unsigned long) [23]
+                0.00    0.00      12/38          copy_str(char const*) [28]
+                0.00    0.00      36/96          mfree(void*) [59]
+                0.00    0.00      12/18          open_file(std::basic_ofstream<char, std::char_traits<char> >*, char*, bool) [66]
+-----------------------------------------------
+                0.22    0.00       6/6           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[15]     0.4    0.22    0.00       6         copy_cl_to_mutant(sim_data&, con_levels&, mutant_data&) [15]
+-----------------------------------------------
+                0.21    0.00       6/6           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[16]     0.4    0.21    0.00       6         copy_mutant_to_cl(sim_data&, con_levels&, mutant_data&) [16]
+-----------------------------------------------
+                0.14    0.00       6/6           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[17]     0.3    0.14    0.00       6         osc_features_post(sim_data&, input_params&, con_levels&, features&, features&, char*, int, int, int) [17]
+                0.00    0.00    1440/1342300     operator new[](unsigned long) [25]
+                0.00    0.00       6/1342885     mallocate(unsigned long) [23]
+                0.00    0.00    1440/1342498     operator delete[](void*) [50]
+                0.00    0.00       6/96          mfree(void*) [59]
+-----------------------------------------------
+                                                 <spontaneous>
+[18]     0.1    0.04    0.01                 create_mutant_data(sim_data&, input_params&) [18]
+                0.00    0.01  739147/1342300     operator new[](unsigned long) [25]
+                0.00    0.00      12/38          copy_str(char const*) [28]
+-----------------------------------------------
+                0.04    0.00       6/6           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[19]     0.1    0.04    0.00       6         print_cell_columns(input_params&, sim_data&, con_levels&, char*, int) [19]
+                0.00    0.00      12/1342885     mallocate(unsigned long) [23]
+                0.00    0.00      12/96          mfree(void*) [59]
+                0.00    0.00       6/18          open_file(std::basic_ofstream<char, std::char_traits<char> >*, char*, bool) [66]
+                0.00    0.00       6/3748        anterior_time(sim_data&, int) [53]
+-----------------------------------------------
+                                                 <spontaneous>
+[20]     0.1    0.04    0.00                 calc_neighbors_1d(sim_data&, int*, int, int, int) [20]
+-----------------------------------------------
+                0.02    0.00     642/642         model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+[21]     0.0    0.02    0.00     642         update_rates(rates&, int) [21]
+-----------------------------------------------
+                0.02    0.00       2/2           simulate_section(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, char**, double*) [3]
+[22]     0.0    0.02    0.00       2         reset_mutant_scores(input_params&, mutant_data*) [22]
+-----------------------------------------------
+                0.00    0.00       2/1342885     create_dirs(input_params&, sim_data&, mutant_data*) [29]
+                0.00    0.00       3/1342885     read_file(input_data*) [37]
+                0.00    0.00       6/1342885     osc_features_post(sim_data&, input_params&, con_levels&, features&, features&, char*, int, int, int) [17]
+                0.00    0.00       6/1342885     osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+                0.00    0.00      12/1342885     print_cell_columns(input_params&, sim_data&, con_levels&, char*, int) [19]
+                0.00    0.00      24/1342885     print_concentrations(input_params&, sim_data&, con_levels&, mutant_data&, char*, int) [14]
+                0.00    0.00      38/1342885     copy_str(char const*) [28]
+                0.00    0.00      61/1342885     operator new(unsigned long) [27]
+                0.01    0.00 1342733/1342885     operator new[](unsigned long) [25]
+[23]     0.0    0.01    0.00 1342885         mallocate(unsigned long) [23]
+-----------------------------------------------
+                0.00    0.00     240/540         osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+                0.01    0.00     300/540         ant_sync(sim_data&, con_levels&, int, int) [26]
+[24]     0.0    0.01    0.00     540         pearson_correlation(double*, double*, int, int) [24]
+-----------------------------------------------
+                0.00    0.00       2/1342300     read_sim_params(input_params&, input_data&, double**&, input_data&) [31]
+                0.00    0.00      18/1342300     osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+                0.00    0.00    1440/1342300     osc_features_post(sim_data&, input_params&, con_levels&, features&, features&, char*, int, int, int) [17]
+                0.00    0.00  601693/1342300     simulate_all_params(input_params&, rates&, sim_data&, double**, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [1]
+                0.00    0.01  739147/1342300     create_mutant_data(sim_data&, input_params&) [18]
+[25]     0.0    0.00    0.01 1342300         operator new[](unsigned long) [25]
+                0.01    0.00 1342733/1342885     mallocate(unsigned long) [23]
+-----------------------------------------------
+                0.00    0.01     100/100         osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+[26]     0.0    0.00    0.01     100         ant_sync(sim_data&, con_levels&, int, int) [26]
+                0.01    0.00     300/540         pearson_correlation(double*, double*, int, int) [24]
+-----------------------------------------------
+                0.00    0.00       1/59          create_passed_file(input_params&) [39]
+                0.00    0.00       1/59          create_features_file(input_params&, mutant_data*) [41]
+                0.00    0.00       1/59          create_conditions_file(input_params&, mutant_data*) [42]
+                0.00    0.00       1/59          create_scores_file(input_params&, mutant_data*) [40]
+                0.00    0.00       2/59          init_terminal() [30]
+                0.00    0.00       2/59          test_her1over_mutant_ant(mutant_data&, features&) [38]
+                0.00    0.00       3/59          std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > >::operator[](int const&) [34]
+                0.00    0.00       3/59          test_DAPT_mutant_ant(mutant_data&, features&) [35]
+                0.00    0.00       3/59          test_her7over_mutant_ant(mutant_data&, features&) [36]
+                0.00    0.00      42/59          osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+[27]     0.0    0.00    0.00      59         operator new(unsigned long) [27]
+                0.00    0.00      61/1342885     mallocate(unsigned long) [23]
+-----------------------------------------------
+                0.00    0.00       3/38          init_terminal() [30]
+                0.00    0.00       4/38          store_filename(char**, char const*) [32]
+                0.00    0.00       7/38          create_dirs(input_params&, sim_data&, mutant_data*) [29]
+                0.00    0.00      12/38          create_mutant_data(sim_data&, input_params&) [18]
+                0.00    0.00      12/38          print_concentrations(input_params&, sim_data&, con_levels&, mutant_data&, char*, int) [14]
+[28]     0.0    0.00    0.00      38         copy_str(char const*) [28]
+                0.00    0.00      38/1342885     mallocate(unsigned long) [23]
+-----------------------------------------------
+                                                 <spontaneous>
+[29]     0.0    0.00    0.00                 create_dirs(input_params&, sim_data&, mutant_data*) [29]
+                0.00    0.00       7/38          copy_str(char const*) [28]
+                0.00    0.00       2/1342885     mallocate(unsigned long) [23]
+                0.00    0.00       7/7           create_dir(char*) [69]
+                0.00    0.00       2/96          mfree(void*) [59]
+-----------------------------------------------
+                                                 <spontaneous>
+[30]     0.0    0.00    0.00                 init_terminal() [30]
+                0.00    0.00       3/38          copy_str(char const*) [28]
+                0.00    0.00       2/59          operator new(unsigned long) [27]
+-----------------------------------------------
+                                                 <spontaneous>
+[31]     0.0    0.00    0.00                 read_sim_params(input_params&, input_data&, double**&, input_data&) [31]
+                0.00    0.00       1/1           read_file(input_data*) [37]
+                0.00    0.00       2/1342300     operator new[](unsigned long) [25]
+                0.00    0.00       1/1           parse_param_line(double*, char*, int&) [82]
+-----------------------------------------------
+                0.00    0.00       4/4           accept_input_params(int, char**, input_params&) [33]
+[32]     0.0    0.00    0.00       4         store_filename(char**, char const*) [32]
+                0.00    0.00       4/38          copy_str(char const*) [28]
+                0.00    0.00       4/96          mfree(void*) [59]
+-----------------------------------------------
+                                                 <spontaneous>
+[33]     0.0    0.00    0.00                 accept_input_params(int, char**, input_params&) [33]
+                0.00    0.00       4/4           store_filename(char**, char const*) [32]
+                0.00    0.00      88/88          option_set(char const*, char const*, char const*) [60]
+-----------------------------------------------
+                0.00    0.00      31/31          osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+[34]     0.0    0.00    0.00      31         std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > >::operator[](int const&) [34]
+                0.00    0.00       3/59          operator new(unsigned long) [27]
+                0.00    0.00       3/53          std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, double> >, int const&) [62]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[35]     0.0    0.00    0.00       1         test_DAPT_mutant_ant(mutant_data&, features&) [35]
+                0.00    0.00       3/59          operator new(unsigned long) [27]
+                0.00    0.00       3/53          std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, double> >, int const&) [62]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[36]     0.0    0.00    0.00       1         test_her7over_mutant_ant(mutant_data&, features&) [36]
+                0.00    0.00       3/59          operator new(unsigned long) [27]
+                0.00    0.00       3/53          std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, double> >, int const&) [62]
+-----------------------------------------------
+                0.00    0.00       1/1           read_sim_params(input_params&, input_data&, double**&, input_data&) [31]
+[37]     0.0    0.00    0.00       1         read_file(input_data*) [37]
+                0.00    0.00       3/1342885     mallocate(unsigned long) [23]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[38]     0.0    0.00    0.00       1         test_her1over_mutant_ant(mutant_data&, features&) [38]
+                0.00    0.00       2/59          operator new(unsigned long) [27]
+                0.00    0.00       2/53          std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, double> >, int const&) [62]
+-----------------------------------------------
+                                                 <spontaneous>
+[39]     0.0    0.00    0.00                 create_passed_file(input_params&) [39]
+                0.00    0.00       1/59          operator new(unsigned long) [27]
+-----------------------------------------------
+                                                 <spontaneous>
+[40]     0.0    0.00    0.00                 create_scores_file(input_params&, mutant_data*) [40]
+                0.00    0.00       1/59          operator new(unsigned long) [27]
+-----------------------------------------------
+                                                 <spontaneous>
+[41]     0.0    0.00    0.00                 create_features_file(input_params&, mutant_data*) [41]
+                0.00    0.00       1/59          operator new(unsigned long) [27]
+-----------------------------------------------
+                                                 <spontaneous>
+[42]     0.0    0.00    0.00                 create_conditions_file(input_params&, mutant_data*) [42]
+                0.00    0.00       1/59          operator new(unsigned long) [27]
+-----------------------------------------------
+                0.00    0.00       1/1342498     delete_sets(double**, input_params&) [100]
+                0.00    0.00      18/1342498     osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+                0.00    0.00     200/1342498     sim_data::~sim_data() [159]
+                0.00    0.00    1440/1342498     osc_features_post(sim_data&, input_params&, con_levels&, features&, features&, char*, int, int, int) [17]
+                0.00    0.00  601693/1342498     simulate_all_params(input_params&, rates&, sim_data&, double**, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [1]
+                0.00    0.00  739146/1342498     delete_mutant_data(mutant_data*) [119]
+[50]     0.0    0.00    0.00 1342498         operator delete[](void*) [50]
+-----------------------------------------------
+                0.00    0.00  178920/462920      perturb_rates_column(sim_data&, rates&, int) [54]
+                0.00    0.00  284000/462920      perturb_rates_all(rates&) [65]
+[51]     0.0    0.00    0.00  462920         random_double(std::pair<double, double>) [51]
+-----------------------------------------------
+                0.00    0.00    5688/5688        split(sim_data&, rates&, con_levels&, int, int) [55]
+[52]     0.0    0.00    0.00    5688         random_int(std::pair<int, int>) [52]
+-----------------------------------------------
+                0.00    0.00       6/3748        print_cell_columns(input_params&, sim_data&, con_levels&, char*, int) [19]
+                0.00    0.00    3742/3748        osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+[53]     0.0    0.00    0.00    3748         anterior_time(sim_data&, int) [53]
+-----------------------------------------------
+                0.00    0.00     630/630         split(sim_data&, rates&, con_levels&, int, int) [55]
+[54]     0.0    0.00    0.00     630         perturb_rates_column(sim_data&, rates&, int) [54]
+                0.00    0.00  178920/462920      random_double(std::pair<double, double>) [51]
+-----------------------------------------------
+                0.00    0.00     630/630         model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+[55]     0.0    0.00    0.00     630         split(sim_data&, rates&, con_levels&, int, int) [55]
+                0.00    0.00    5688/5688        random_int(std::pair<int, int>) [52]
+                0.00    0.00     630/630         perturb_rates_column(sim_data&, rates&, int) [54]
+-----------------------------------------------
+                0.00    0.00     330/330         osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+[56]     0.0    0.00    0.00     330         avg_amp(sim_data&, con_levels&, int, int, int, int) [56]
+-----------------------------------------------
+                0.00    0.00     240/240         osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+[57]     0.0    0.00    0.00     240         test_compl(sim_data&, double*, double*) [57]
+-----------------------------------------------
+                                  53             std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_erase(std::_Rb_tree_node<std::pair<int const, double> >*) [58]
+                0.00    0.00     180/180         delete_mutant_data(mutant_data*) [119]
+[58]     0.0    0.00    0.00     180+53      std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_erase(std::_Rb_tree_node<std::pair<int const, double> >*) [58]
+                0.00    0.00      53/54          operator delete(void*) [61]
+                                  53             std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_erase(std::_Rb_tree_node<std::pair<int const, double> >*) [58]
+-----------------------------------------------
+                0.00    0.00       2/96          create_dirs(input_params&, sim_data&, mutant_data*) [29]
+                0.00    0.00       3/96          free_terminal() [104]
+                0.00    0.00       4/96          store_filename(char**, char const*) [32]
+                0.00    0.00       6/96          delete_dirs(input_params&, char**) [98]
+                0.00    0.00       6/96          osc_features_post(sim_data&, input_params&, con_levels&, features&, features&, char*, int, int, int) [17]
+                0.00    0.00       6/96          osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+                0.00    0.00       9/96          input_params::~input_params() [157]
+                0.00    0.00      12/96          delete_mutant_data(mutant_data*) [119]
+                0.00    0.00      12/96          print_cell_columns(input_params&, sim_data&, con_levels&, char*, int) [19]
+                0.00    0.00      36/96          print_concentrations(input_params&, sim_data&, con_levels&, mutant_data&, char*, int) [14]
+[59]     0.0    0.00    0.00      96         mfree(void*) [59]
+-----------------------------------------------
+                0.00    0.00      88/88          accept_input_params(int, char**, input_params&) [33]
+[60]     0.0    0.00    0.00      88         option_set(char const*, char const*, char const*) [60]
+-----------------------------------------------
+                0.00    0.00       1/54          free_terminal() [104]
+                0.00    0.00      53/54          std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_erase(std::_Rb_tree_node<std::pair<int const, double> >*) [58]
+[61]     0.0    0.00    0.00      54         operator delete(void*) [61]
+-----------------------------------------------
+                0.00    0.00       2/53          test_her1over_mutant_ant(mutant_data&, features&) [38]
+                0.00    0.00       3/53          std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > >::operator[](int const&) [34]
+                0.00    0.00       3/53          test_DAPT_mutant_ant(mutant_data&, features&) [35]
+                0.00    0.00       3/53          test_her7over_mutant_ant(mutant_data&, features&) [36]
+                0.00    0.00      42/53          osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [8]
+[62]     0.0    0.00    0.00      53         std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, double> >, int const&) [62]
+                0.00    0.00      48/48          std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_unique_pos(int const&) [63]
+-----------------------------------------------
+                0.00    0.00      48/48          std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, double> >, int const&) [62]
+[63]     0.0    0.00    0.00      48         std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_unique_pos(int const&) [63]
+-----------------------------------------------
+                0.00    0.00       7/39          fill_perturbations(rates&, char*) [120]
+                0.00    0.00      32/39          fill_gradients(rates&, char*) [109]
+[64]     0.0    0.00    0.00      39         not_EOL(char) [64]
+-----------------------------------------------
+                0.00    0.00       8/20          model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*) [5]
+                0.00    0.00      12/20          simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[65]     0.0    0.00    0.00      20         perturb_rates_all(rates&) [65]
+                0.00    0.00  284000/462920      random_double(std::pair<double, double>) [51]
+-----------------------------------------------
+                0.00    0.00       6/18          print_cell_columns(input_params&, sim_data&, con_levels&, char*, int) [19]
+                0.00    0.00      12/18          print_concentrations(input_params&, sim_data&, con_levels&, mutant_data&, char*, int) [14]
+[66]     0.0    0.00    0.00      18         open_file(std::basic_ofstream<char, std::char_traits<char> >*, char*, bool) [66]
+-----------------------------------------------
+                0.00    0.00      12/12          simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[67]     0.0    0.00    0.00      12         reset_seed(input_params&, sim_data&) [67]
+-----------------------------------------------
+                0.00    0.00      12/12          simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[68]     0.0    0.00    0.00      12         calc_neighbors_2d(sim_data&) [68]
+-----------------------------------------------
+                0.00    0.00       7/7           create_dirs(input_params&, sim_data&, mutant_data*) [29]
+[69]     0.0    0.00    0.00       7         create_dir(char*) [69]
+-----------------------------------------------
+                0.00    0.00       5/5           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[70]     0.0    0.00    0.00       5         wave_testing(sim_data&, con_levels&, mutant_data&, int, int, int) [70]
+                0.00    0.00       5/5           test_wildtype_wave(std::pair<int, int>*, int, mutant_data&, int, int) [71]
+-----------------------------------------------
+                0.00    0.00       5/5           wave_testing(sim_data&, con_levels&, mutant_data&, int, int, int) [70]
+[71]     0.0    0.00    0.00       5         test_wildtype_wave(std::pair<int, int>*, int, mutant_data&, int, int) [71]
+-----------------------------------------------
+                0.00    0.00       4/4           delete_file(std::basic_ofstream<char, std::char_traits<char> >*) [99]
+[72]     0.0    0.00    0.00       4         close_if_open(std::basic_ofstream<char, std::char_traits<char> >*) [72]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [166]
+[73]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z18test_wildtype_postR11mutant_dataR8features [73]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [166]
+[74]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z19simulate_all_paramsR12input_paramsR5ratesR8sim_dataPPdP11mutant_dataPSt14basic_ofstreamIcSt11char_traitsIcEESD_PPcSD_SD_ [74]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [166]
+[75]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z22get_peaks_and_troughs1R8sim_dataR10con_levelsiiR12growin_arrayS4_S4_i [75]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [166]
+[76]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z6is_nand [76]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [166]
+[77]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z7not_EOLc [77]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [166]
+[78]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z9mallocatem [78]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [166]
+[79]     0.0    0.00    0.00       1         _GLOBAL__sub_I_main [79]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [166]
+[80]     0.0    0.00    0.00       1         _GLOBAL__sub_I_term [80]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_param_set(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [2]
+[81]     0.0    0.00    0.00       1         print_scores(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, int, double*, double) [81]
+-----------------------------------------------
+                0.00    0.00       1/1           read_sim_params(input_params&, input_data&, double**&, input_data&) [31]
+[82]     0.0    0.00    0.00       1         parse_param_line(double*, char*, int&) [82]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_param_set(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [2]
+[83]     0.0    0.00    0.00       1         print_conditions(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, mutant_data*, int) [83]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[84]     0.0    0.00    0.00       1         test_wildtype_ant(mutant_data&, features&) [84]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_param_set(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [2]
+[85]     0.0    0.00    0.00       1         print_osc_features(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, mutant_data*, int, int) [85]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[86]     0.0    0.00    0.00       1         test_wildtype_post(mutant_data&, features&) [86]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_all_params(input_params&, rates&, sim_data&, double**, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [1]
+[87]     0.0    0.00    0.00       1         determine_set_passed(sim_data&, int, double) [87]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[88]     0.0    0.00    0.00       1         test_DAPT_mutant_post(mutant_data&, features&) [88]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[89]     0.0    0.00    0.00       1         test_delta_mutant_ant(mutant_data&, features&) [89]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[90]     0.0    0.00    0.00       1         test_delta_mutant_post(mutant_data&, features&) [90]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[91]     0.0    0.00    0.00       1         test_MESPAOVER_mutant_ant(mutant_data&, features&) [91]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[92]     0.0    0.00    0.00       1         test_her1over_mutant_post(mutant_data&, features&) [92]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[93]     0.0    0.00    0.00       1         test_her7over_mutant_post(mutant_data&, features&) [93]
+-----------------------------------------------
+                0.00    0.00       1/1           simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [4]
+[94]     0.0    0.00    0.00       1         test_MESPAOVER_mutant_post(mutant_data&, features&) [94]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [73] _GLOBAL__sub_I__Z18test_wildtype_postR11mutant_dataR8features [3] simulate_section(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, char**, double*) [11] calculate_delay_indices(sim_data&, con_levels&, int, int, int, double**, int*, int*)
+  [74] _GLOBAL__sub_I__Z19simulate_all_paramsR12input_paramsR5ratesR8sim_dataPPdP11mutant_dataPSt14basic_ofstreamIcSt11char_traitsIcEESD_PPcSD_SD_ [20] calc_neighbors_1d(sim_data&, int*, int, int, int) [38] test_her1over_mutant_ant(mutant_data&, features&)
+  [75] _GLOBAL__sub_I__Z22get_peaks_and_troughs1R8sim_dataR10con_levelsiiR12growin_arrayS4_S4_i [68] calc_neighbors_2d(sim_data&) [36] test_her7over_mutant_ant(mutant_data&, features&)
+  [76] _GLOBAL__sub_I__Z6is_nand [15] copy_cl_to_mutant(sim_data&, con_levels&, mutant_data&) [91] test_MESPAOVER_mutant_ant(mutant_data&, features&)
+  [77] _GLOBAL__sub_I__Z7not_EOLc [16] copy_mutant_to_cl(sim_data&, con_levels&, mutant_data&) [92] test_her1over_mutant_post(mutant_data&, features&)
+  [78] _GLOBAL__sub_I__Z9mallocatem [17] osc_features_post(sim_data&, input_params&, con_levels&, features&, features&, char*, int, int, int) [93] test_her7over_mutant_post(mutant_data&, features&)
+  [79] _GLOBAL__sub_I_main    [65] perturb_rates_all(rates&) [94] test_MESPAOVER_mutant_post(mutant_data&, features&)
+  [80] _GLOBAL__sub_I_term     [7] protein_synthesis(sim_data&, double**, con_levels&, st_context&, int*) [59] mfree(void*)
+  [13] baby_to_cl(con_levels&, con_levels&, int, int) [84] test_wildtype_ant(mutant_data&, features&) [5] model(sim_data&, rates&, con_levels&, con_levels&, mutant_data&, double*)
+  [69] create_dir(char*)      [18] create_mutant_data(sim_data&, input_params&) [55] split(sim_data&, rates&, con_levels&, int, int)
+  [60] option_set(char const*, char const*, char const*) [19] print_cell_columns(input_params&, sim_data&, con_levels&, char*, int) [56] avg_amp(sim_data&, con_levels&, int, int, int, int)
+  [52] random_int(std::pair<int, int>) [85] print_osc_features(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, mutant_data*, int, int) [64] not_EOL(char)
+  [67] reset_seed(input_params&, sim_data&) [2] simulate_param_set(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [26] ant_sync(sim_data&, con_levels&, int, int)
+  [57] test_compl(sim_data&, double*, double*) [86] test_wildtype_post(mutant_data&, features&) [28] copy_str(char const*)
+  [81] print_scores(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, int, double*, double) [71] test_wildtype_wave(std::pair<int, int>*, int, mutant_data&, int, int) [23] mallocate(unsigned long)
+  [21] update_rates(rates&, int) [24] pearson_correlation(double*, double*, int, int) [66] open_file(std::basic_ofstream<char, std::char_traits<char> >*, char*, bool)
+  [70] wave_testing(sim_data&, con_levels&, mutant_data&, int, int, int) [22] reset_mutant_scores(input_params&, mutant_data*) [37] read_file(input_data*)
+  [53] anterior_time(sim_data&, int) [1] simulate_all_params(input_params&, rates&, sim_data&, double**, mutant_data*, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*, char**, std::basic_ofstream<char, std::char_traits<char> >*, std::basic_ofstream<char, std::char_traits<char> >*) [34] std::map<int, double, std::less<int>, std::allocator<std::pair<int const, double> > >::operator[](int const&)
+  [72] close_if_open(std::basic_ofstream<char, std::char_traits<char> >*) [87] determine_set_passed(sim_data&, int, double) [63] std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_unique_pos(int const&)
+  [51] random_double(std::pair<double, double>) [54] perturb_rates_column(sim_data&, rates&, int) [62] std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<int const, double> >, int const&)
+  [12] dimer_proteins(sim_data&, double**, con_levels&, st_context&) [14] print_concentrations(input_params&, sim_data&, con_levels&, mutant_data&, char*, int) [58] std::_Rb_tree<int, std::pair<int const, double>, std::_Select1st<std::pair<int const, double> >, std::less<int>, std::allocator<std::pair<int const, double> > >::_M_erase(std::_Rb_tree_node<std::pair<int const, double> >*)
+   [6] mRNA_synthesis(sim_data&, double**, con_levels&, st_context&, int*, mutant_data&, bool, bool) [35] test_DAPT_mutant_ant(mutant_data&, features&) [50] operator delete[](void*)
+  [32] store_filename(char**, char const*) [88] test_DAPT_mutant_post(mutant_data&, features&) [61] operator delete(void*)
+   [4] simulate_mutant(int, input_params&, sim_data&, rates&, con_levels&, con_levels&, mutant_data&, features&, char*, double*) [89] test_delta_mutant_ant(mutant_data&, features&) [25] operator new[](unsigned long)
+   [8] osc_features_ant(sim_data&, input_params&, features&, char*, con_levels&, mutant_data&, int, int, int, int, int) [9] get_peaks_and_troughs1(sim_data&, con_levels&, int, int, growin_array&, growin_array&, growin_array&, int) [27] operator new(unsigned long)
+  [82] parse_param_line(double*, char*, int&) [10] get_peaks_and_troughs2(sim_data&, con_levels&, int, int, growin_array&, growin_array&, growin_array&, int, double*, double*, double*)
+  [83] print_conditions(input_params&, std::basic_ofstream<char, std::char_traits<char> >*, mutant_data*, int) [90] test_delta_mutant_post(mutant_data&, features&)
