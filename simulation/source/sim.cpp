@@ -956,12 +956,8 @@ void mRNA_synthesis (sim_data& sd, double** rs, con_levels& cl, st_context& stc,
 			// 2D neighbors are precalculated and simply copied from the structure as needed
 			int cell = old_cells_mrna[IMH1 + j];
 			memcpy(neighbors[IMH1 + j], sd.neighbors[cell], sizeof(int) * NEIGHBORS_2D);
-		}
-				
-		// For each mRNA concentration, average the given cell's neighbors' Delta protein concentrations
-		for (int j = 0; j < NUM_DD_INDICES; j++) {
+			// For each mRNA concentration, average the given cell's neighbors' Delta protein concentrations
 			int* cells = neighbors[IMH1 + j];
-			int cell = old_cells_mrna[IMH1 + j];
 			int time = WRAP(stc.time_cur - delays[j], sd.max_delay_size);
 			// double* cur_cons = (cl.cons)[CPDELTA][time];
 			double sum;
