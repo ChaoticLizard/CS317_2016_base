@@ -1338,7 +1338,8 @@ void copy_mutant_to_cl (sim_data& sd, con_levels& cl, mutant_data& md) {
 	}
 	for (int j = 0; j < md.cl.time_steps; j++) {
 		for (int k = 0; k < md.cl.cells; k++) {
-			cl.cons[BIRTH][j][k] -= sd.steps_til_growth + sd.max_delay_size;
+//			(cl.cons)[BIRTH][j][k] -= sd.steps_til_growth + sd.max_delay_size;
+            cl.cons.subtract(BIRTH, j, k, sd.steps_til_growth + sd.max_delay_size);
 		}
 	}
 }
