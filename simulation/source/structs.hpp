@@ -36,6 +36,88 @@ structs.hpp contains every struct used in the program.
 
 using namespace std;
 
+
+template<class type>
+class ThreeDimArray {
+  private:
+    int rowVar, colVar, depthVar;
+    type *array;
+
+    class ColClass {
+      public:
+       ColClass(type* therowcol) {
+        c = therowcol;
+       }
+       type& operator[](int i) {
+         return c[i];
+       }
+      type* c;
+    };
+
+    class RowClass {
+     public:
+      RowClass(type* therow, const int giveDepth) {
+        r = therow;
+        d = giveDepth;
+      }
+      ColClass operator[](int i) {
+        return ColClass(r+i*d);
+      }
+
+      type* r;
+      int d;
+    };
+  ThreeDimArray(const ThreeDimArray & other);
+
+  public:
+
+    ThreeDimArray() {
+      array = NULL;
+    }
+
+    ThreeDimArray(const int giveRow, const int giveCol, const int giveDepth) {
+      array = new type[giveRow*giveCol*giveDepth];
+      rowVar = giveRow;
+      colVar = giveCol;
+      depthVar = giveDepth;
+      for (int r = 0; r<rowVar; r++) {
+        for (int c = 0; c<colVar; c++) {
+          for (int d = 0; d<depthVar; d++) {
+            (this)[r][c][d] = 0;
+          }
+        }
+      }
+    }
+    ~ThreeDimArray() {
+      delete [] array;
+    }
+
+    void initialize(int giveRow, int giveCol, int giveDepth) {
+      array = new type[giveRow*giveCol*giveDepth];
+      rowVar = giveRow;
+      colVar = giveCol;
+      depthVar = giveDepth;
+      for (int r = 0; r<rowVar; r++) {
+        for (int c = 0; c<colVar; c++) {
+          for (int d = 0; d<depthVar; d++) {
+            (this)[r][c][d] = 0;
+          }
+        }
+      }      
+    } 
+
+    RowClass operator[](int i) {
+      return RowClass(array+(i*colVar*depthVar), depthVar);
+    }
+    
+    void subtract(int r, int c, int d, int sub) {
+        array[r*colVar*depthVar + c*depthVar + d] -= sub;
+    }
+    
+
+
+};
+
 char* copy_str(const char*); // init.h cannot be included because it requires this file, structs.h, creating a cyclical dependency; therefore, copy_str, declared in init.h, must be declared in this file as well in order to use it here
 
 /* terminal contains colors, streams, and common messages for terminal output
@@ -303,7 +385,7 @@ struct con_levels {
 	int num_con_levels; // The number of concentration levels this struct stores (not necessarily the total number of concentration levels)
 	int time_steps; // The number of time steps this struct stores concentrations for
 	int cells; // The number of cells this struct stores concentrations for
-	double*** cons; // A three dimensional array that stores [concentration levels][time steps][cells] in that order
+	ThreeDimArray<double> cons; // A three dimensional array that stores [concentration levels][time steps][cells] in that order
 	int* active_start_record; // Record of the start of the active PSM at each time step
 	int* active_end_record; // Record of the end of the active PSM at each time step
 	
@@ -330,17 +412,9 @@ struct con_levels {
 			this->active_start_record[0] = active_start; // Initialize the active start record with the given position
 			this->active_end_record = new int[time_steps];
 			this->active_end_record[0] = 0; // Initialize the active end record at position 0
-		
-			this->cons = new double**[num_con_levels];
-			for (int i = 0; i < num_con_levels; i++) {
-				this->cons[i] = new double*[time_steps];
-				for (int j = 0; j < time_steps; j++) {
-					this->cons[i][j] = new double[cells];
-					for (int k = 0; k < cells; k++) {
-						this->cons[i][j][k] = 0; // Initialize every concentration level at every time step for every cell to 0
-					}
-				}
-			}
+			// Initialize every concentration level at every time step for every cell to 0
+			cons.initialize(num_con_levels, time_steps, cells);
+
 			for (int j = 1; j < time_steps; j++) {
 				this->active_start_record[j] = 0;
 		        this->active_end_record[j] = 0;
@@ -355,7 +429,7 @@ struct con_levels {
 			for (int i = 0; i < this->num_con_levels; i++) {
 				for (int j = 0; j < this->time_steps; j++) {
 					for (int k = 0; k < this->cells; k++) {
-						this->cons[i][j][k] = 0;
+						(this->cons)[i][j][k] = 0;
 					}
 				}
 			}
@@ -369,13 +443,6 @@ struct con_levels {
 	// Frees the memory used by the struct
 	void clear () {
 		if (this->initialized) {
-			for (int i = 0; i < this->num_con_levels; i++) {
-				for (int j = 0; j < this->time_steps; j++) {
-					delete[] this->cons[i][j];
-				}
-				delete[] this->cons[i];
-			}
-			delete[] this->cons;
 			delete[] this->active_start_record;
             delete[] this->active_end_record;
 			this->initialized = false;
@@ -678,7 +745,7 @@ struct input_data {
 /* st_context contains the spatiotemporal context at a particular point in the simulation
 	notes:
 	todo:
-		TODO Rename this to something less horrid.
+		 Rename this to something less horrid.
 */
 struct st_context {
 	int time_prev; // The previous time step
