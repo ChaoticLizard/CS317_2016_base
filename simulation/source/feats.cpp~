@@ -45,7 +45,6 @@ int get_peaks_and_troughs1 (sim_data& sd, con_levels& cl, int actual_cell, int t
 	int num_points = 0;
 	int col = actual_cell % sd.width_total;
 	
-	double** conc = cl.cons[mr];
 	for (int j = time_start + 1; j < sd.time_end - 1 && cl.cons[BIRTH][j][actual_cell] == cl.cons[BIRTH][j - 1][actual_cell] && cl.cons[BIRTH][j][actual_cell] == cl.cons[BIRTH][j + 1][actual_cell]; j++) {
 		
 		int pos = 0;
@@ -60,10 +59,10 @@ int get_peaks_and_troughs1 (sim_data& sd, con_levels& cl, int actual_cell, int t
 		bool is_peak = true;
 		bool is_trough = true;
 		for (int k = MAX(j - (2 / sd.step_size / sd.big_gran), time_start); k <= MIN(j + 2 / sd.step_size / sd.big_gran, sd.time_end - 1); k++) {
-			if (conc[j][actual_cell] <= conc[k][actual_cell] && j!=k) {
+			if (cl.cons[mr][j][actual_cell] <= cl.cons[mr][k][actual_cell] && j!=k) {
 				is_peak = false;
 			}
-			if (conc[j][actual_cell] >= conc[k][actual_cell] && j!=k) {
+			if (cl.cons[mr][j][actual_cell] >= cl.cons[mr][k][actual_cell] && j!=k) {
 				is_trough = false;
 			}
 		}
@@ -93,7 +92,6 @@ int get_peaks_and_troughs2 (sim_data& sd, con_levels& cl, int actual_cell, int t
 	int num_points = 0;
 	int col = actual_cell % sd.width_total;
 	
-	double** conc = cl.cons[mr];
 	int compl_count=0;
 	for (int j = time_start + 1; j < sd.time_end - 1 && cl.cons[BIRTH][j][actual_cell] == cl.cons[BIRTH][j - 1][actual_cell] && cl.cons[BIRTH][j][actual_cell] == cl.cons[BIRTH][j + 1][actual_cell]; j++) {
 		// calculate position in the PSM of the cell
@@ -112,11 +110,11 @@ int get_peaks_and_troughs2 (sim_data& sd, con_levels& cl, int actual_cell, int t
 	
 		// check if the current point is a peak
 		// check if the current point is a trough
-		// EDIT November 30th, 2016: Merged these two loops
+		// EDIT November 30th, 2016: Merged two loops
 		bool is_peak = true;
 		bool is_trough = true;
 		for (int k = MAX(j - (2 / sd.step_size / sd.big_gran), time_start); k <= MIN(j + 2 / sd.step_size / sd.big_gran, sd.time_end - 1); k++) {
-			if (conc[j][actual_cell] <= conc[k][actual_cell] && j!=k) {
+			if (cl.cons[mr][j][actual_cell] <= cl.cons[mr][k][actual_cell] && j!=k) {
 				is_peak = false;
 			}
 			if (conc[j][actual_cell] >= conc[k][actual_cell] && j!=k) {
@@ -212,7 +210,6 @@ void osc_features_ant (sim_data& sd, input_params& ip, features& wtfeat, char* f
 			features_files[PERIOD] << sd.height << "," << sd.width_total << endl;
 			features_files[AMPLITUDE] << sd.height << "," << sd.width_total << endl;
 		}
-		double** conc = cl.cons[mr];
 		double amp_avg = 0;
 		double period_avg = 0;
         int time_start;
@@ -268,7 +265,7 @@ void osc_features_ant (sim_data& sd, input_params& ip, features& wtfeat, char* f
 						
 						// Check for amplitude
 						if (type[cur_point] == 1 && cur_point >= 1 && cur_point < num_points - 1) {
-							amplitudes[amps] = conc[crit_points[cur_point]][cell] - (conc[crit_points[cur_point - 1]][cell] + conc[crit_points[cur_point + 1]][cell]) / 2;
+							amplitudes[amps] = cl.cons[mr][crit_points[cur_point]][cell] - (cl.cons[mr][crit_points[cur_point - 1]][cell] + cl.cons[mr][crit_points[cur_point + 1]][cell]) / 2;
 							amp_pos[amps] = position[cur_point];
                             //amp_time[amps] = crit_points[cur_point];
 							amps++;
@@ -661,7 +658,6 @@ void osc_features_post (sim_data& sd, input_params& ip, con_levels& cl, features
 				double cell_period = 0;
 				bool calc_period = true;
 
-				double** conc = cl.cons[mr];
 				for (int j = start + 1; j < end - 1; j++) {
 					if (abs(num_peaks - num_troughs) > 1) {
 						num_peaks = 0;
@@ -669,7 +665,7 @@ void osc_features_post (sim_data& sd, input_params& ip, con_levels& cl, features
 					}
 					
 					//check if the current point is a peak
-					if (conc[j - 1][cell] < conc[j][cell] && conc[j][cell] > conc[j + 1][cell]) {
+					if (cl.cons[mr][j - 1][cell] < cl.cons[mr][j][cell] && cl.cons[mr][j][cell] > cl.cons[mr][j + 1][cell]) {
 						peaks[num_peaks] = j;
 						num_peaks++;
 						if (calc_period) {
@@ -687,7 +683,7 @@ void osc_features_post (sim_data& sd, input_params& ip, con_levels& cl, features
 					}
 					
 					//check if the current point is a trough
-					if (conc[j - 1][cell] > conc[j][cell] && conc[j][cell] < conc[j + 1][cell]) {
+					if (cl.cons[mr][j - 1][cell] > cl.cons[mr][j][cell] && cl.cons[mr][j][cell] < cl.cons[mr][j + 1][cell]) {
 						troughs[num_troughs] = j;
 						num_troughs++;
 						
@@ -698,7 +694,7 @@ void osc_features_post (sim_data& sd, input_params& ip, con_levels& cl, features
 							int sec_last_trough = troughs[num_troughs - 2];
 							
 							double first_amp = peaks[1] - (troughs[0] + troughs[1]) / 2;
-							double cur_amp = conc[last_peak][cell] - (conc[last_trough][cell] + conc[sec_last_trough][cell]) / 2;
+							double cur_amp = cl.cons[mr][last_peak][cell] - (cl.cons[mr][last_trough][cell] + cl.cons[mr][sec_last_trough][cell]) / 2;
 							if (num_peaks >= 4) {
 								features_files[AMPLITUDE] << cur_amp << " ";
 							}
@@ -718,9 +714,9 @@ void osc_features_post (sim_data& sd, input_params& ip, con_levels& cl, features
 					int trough_mid = troughs[num_peaks / 2];
 
 					period_tot += cell_period;
-					amplitude += (conc[peak_penult][cell] - (conc[trough_penult][cell] + conc[trough_ult][cell]) / 2);
-					peaktotrough_end += conc[trough_ult][cell] > 1 ? conc[peak_penult][cell] / conc[trough_ult][cell] : conc[peak_penult][cell];
-					peaktotrough_mid += conc[trough_mid][cell] > 1 ? conc[peak_mid][cell] / conc[trough_mid][cell] : conc[peak_mid][cell];
+					amplitude += (cl.cons[mr][peak_penult][cell] - (cl.cons[mr][trough_penult][cell] + cl.cons[mr][trough_ult][cell]) / 2);
+					peaktotrough_end += cl.cons[mr][trough_ult][cell] > 1 ? cl.cons[mr][peak_penult][cell] / cl.cons[mr][trough_ult][cell] : cl.cons[mr][peak_penult][cell];
+					peaktotrough_mid += cl.cons[mr][trough_mid][cell] > 1 ? cl.cons[mr][peak_mid][cell] / cl.cons[mr][trough_mid][cell] : cl.cons[mr][peak_mid][cell];
 
 				} else {
 					period_tot += (period_tot < INFINITY ? INFINITY : 0);

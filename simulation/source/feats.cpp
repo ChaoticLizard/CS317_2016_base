@@ -62,7 +62,7 @@ int get_peaks_and_troughs1 (sim_data& sd, con_levels& cl, int actual_cell, int t
 			if (cl.cons[mr][j][actual_cell] <= cl.cons[mr][k][actual_cell] && j!=k) {
 				is_peak = false;
 			}
-			if (conc[j][actual_cell] >= conc[k][actual_cell] && j!=k) {
+			if (cl.cons[mr][j][actual_cell] >= cl.cons[mr][k][actual_cell] && j!=k) {
 				is_trough = false;
 			}
 		}
@@ -117,7 +117,7 @@ int get_peaks_and_troughs2 (sim_data& sd, con_levels& cl, int actual_cell, int t
 			if (cl.cons[mr][j][actual_cell] <= cl.cons[mr][k][actual_cell] && j!=k) {
 				is_peak = false;
 			}
-			if (conc[j][actual_cell] >= conc[k][actual_cell] && j!=k) {
+			if (cl.cons[mr][j][actual_cell] >= cl.cons[mr][k][actual_cell] && j!=k) {
 				is_trough = false;
 			}	
 		}
