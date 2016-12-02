@@ -94,7 +94,7 @@ int get_peaks_and_troughs2 (sim_data& sd, con_levels& cl, int actual_cell, int t
 	*/
 	int num_points = 0;
 	int col = actual_cell % sd.width_total;
-	//ThreeDimArray<double>::RowClass conc = cl.cons[mr];
+	ThreeDimArray<double>::RowClass conc = cl.cons[mr];
 	
 	int compl_count=0;
 	for (int j = time_start + 1; j < sd.time_end - 1 && cl.cons[BIRTH][j][actual_cell] == cl.cons[BIRTH][j - 1][actual_cell] && cl.cons[BIRTH][j][actual_cell] == cl.cons[BIRTH][j + 1][actual_cell]; j++) {
@@ -117,12 +117,12 @@ int get_peaks_and_troughs2 (sim_data& sd, con_levels& cl, int actual_cell, int t
 		bool is_trough = true;
 		bool is_peak = true;
 		for (int k = MAX(j - (2 / sd.step_size / sd.big_gran), time_start); k <= MIN(j + 2 / sd.step_size / sd.big_gran, sd.time_end - 1); k++) {
-			if (cl.cons[mr][j][actual_cell] <= cl.cons[mr][k][actual_cell] && j!=k) {
+			if (conc[j][actual_cell] <= conc[k][actual_cell] && j!=k) {
 				is_peak = false;
 				
 			}
 
-			if (cl.cons[mr][j][actual_cell] >= cl.cons[mr][k][actual_cell] && j!=k) {
+			if (conc[j][actual_cell] >= conc[k][actual_cell] && j!=k) {
 				is_trough = false;
 			}	
 
