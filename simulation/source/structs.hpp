@@ -38,85 +38,88 @@ using namespace std;
 
 
 template<class type>
-class ThreeDimArray {
+class ThreeDimArray { // this is a class that allows the syntax of a 3D array, but stores the data in a 1D array
   private:
-    int rowVar, colVar, depthVar;
+    int rowVar, colVar, depthVar, colTimesDepth;
     type *array;
 
     class ColClass {
       public:
-       ColClass(type* therowcol) {
-        c = therowcol;
+       ColClass(type* _addr, int a, int b, int _depth, int _colTimesDepth) {
+         addr = _addr;
+	 depth = _depth;
+	 colTimesDepth = _colTimesDepth;
+	 firstElement = a;
+	 secondElement = b;
        }
-       type& operator[](int i) {
-         return c[i];
+       type& operator[](int thirdElement) {
+	 type* elementAddress = addr+(firstElement*colTimesDepth) + secondElement*depth;
+         return elementAddress[thirdElement];
        }
-      type* c;
-    };
+       type* addr;
+       int depth, colTimesDepth;
+       int firstElement, secondElement;
+    };//end ColClass
 
+  ThreeDimArray(const ThreeDimArray & other);
+  
+  public:
     class RowClass {
      public:
-      RowClass(type* therow, const int giveDepth) {
-        r = therow;
-        d = giveDepth;
+      RowClass(type* _addr, int giveDepth, int _colTimesDepth, int a) {
+        addr = _addr;
+        depth = giveDepth;
+	colTimesDepth = _colTimesDepth;
+	firstElement = a;
       }
-      ColClass operator[](int i) {
-        return ColClass(r+i*d);
+      ColClass operator[](int b) {
+        return ColClass(addr, firstElement, b, depth, colTimesDepth);
       }
 
-      type* r;
-      int d;
-    };
-  ThreeDimArray(const ThreeDimArray & other);
-
-  public:
+      type* addr;
+      int depth, colTimesDepth;
+      int firstElement;
+    }; //end RowClass
 
     ThreeDimArray() {
       array = NULL;
     }
 
-    ThreeDimArray(const int giveRow, const int giveCol, const int giveDepth) {
-      array = new type[giveRow*giveCol*giveDepth];
-      rowVar = giveRow;
-      colVar = giveCol;
-      depthVar = giveDepth;
-      for (int r = 0; r<rowVar; r++) {
-        for (int c = 0; c<colVar; c++) {
-          for (int d = 0; d<depthVar; d++) {
-            (this)[r][c][d] = 0;
-          }
-        }
-      }
+    ThreeDimArray(int _Row, int _Col, int _Depth) {
+      array = new type[_Row*_Col*_Depth];
+  	rowVar = _Row;
+ 	colVar = _Col;
+	depthVar = _Depth;
+	colTimesDepth = colVar*depthVar;
     }
+
+    void initialize(int _Row, int _Col, int _Depth) {
+  	array = new type[_Row*_Col*_Depth];
+  	rowVar = _Row;
+  	colVar = _Col;
+  	depthVar = _Depth;  
+	colTimesDepth = _Col*_Depth;
+    } 
+
     ~ThreeDimArray() {
       delete [] array;
     }
 
-    void initialize(int giveRow, int giveCol, int giveDepth) {
-      array = new type[giveRow*giveCol*giveDepth];
-      rowVar = giveRow;
-      colVar = giveCol;
-      depthVar = giveDepth;
-      for (int r = 0; r<rowVar; r++) {
-        for (int c = 0; c<colVar; c++) {
-          for (int d = 0; d<depthVar; d++) {
-            (this)[r][c][d] = 0;
-          }
-        }
-      }      
-    } 
-
-    RowClass operator[](int i) {
-      return RowClass(array+(i*colVar*depthVar), depthVar);
+    RowClass operator[](int a) {
+      return RowClass(array, depthVar, colTimesDepth, a);
     }
     
     void subtract(int r, int c, int d, int sub) {
-        array[r*colVar*depthVar + c*depthVar + d] -= sub;
+        array[r*colTimesDepth + c*depthVar + d] -= sub;
+    }
+
+    type returnDepth() {
+    	return depthVar;
     }
     
 
+};//end ThreeDimArray Class
 
-};
 
 char* copy_str(const char*); // init.h cannot be included because it requires this file, structs.h, creating a cyclical dependency; therefore, copy_str, declared in init.h, must be declared in this file as well in order to use it here
 
