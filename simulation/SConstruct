@@ -16,8 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-compile_flags = '-Wall -O2 '
-link_flags = ''
+compile_flags = '-Wall -O2 -fopenmp '
+link_flags = '-fopenmp '
 if ARGUMENTS.get('profiling', 0):
 	compile_flags += '-pg'
 	link_flags += '-pg'

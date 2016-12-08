@@ -431,6 +431,7 @@ bool model (sim_data& sd, rates& rs, con_levels& cl, con_levels& baby_cl, mutant
 		copy_records(sd, baby_cl, baby_j, time_prev); // Copy each cell's birth and parent so the records are accessible at every time step
 		
 		// Iterate through each extant cell
+#pragma omp parallel for
 		for (int k = 0; k < sd.cells_total; k++) {
 			if (sd.width_current == sd.width_total || k % sd.width_total <= sd.active_start) { // Compute only existing (i.e. already grown) cells
 				// Calculate the cell indices at the start of each mRNA and protein's delay

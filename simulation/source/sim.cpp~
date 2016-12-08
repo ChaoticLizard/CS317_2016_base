@@ -166,6 +166,7 @@ int simulate_section (int set_num, input_params& ip, sim_data& sd, rates& rs, co
 	reset_mutant_scores(ip, mds);
 	
 	// Simulate each mutant
+#pragma omp parallel for
 	for (int i = 0; i < ip.num_active_mutants; i++) {
 		mutant_sim_message(mds[i], i);
 		store_original_rates(rs, mds[i], temp_rates); // will be used to revert original rates after current mutant
@@ -431,6 +432,7 @@ bool model (sim_data& sd, rates& rs, con_levels& cl, con_levels& baby_cl, mutant
 		copy_records(sd, baby_cl, baby_j, time_prev); // Copy each cell's birth and parent so the records are accessible at every time step
 		
 		// Iterate through each extant cell
+#pragma omp parallel for
 		for (int k = 0; k < sd.cells_total; k++) {
 			if (sd.width_current == sd.width_total || k % sd.width_total <= sd.active_start) { // Compute only existing (i.e. already grown) cells
 				// Calculate the cell indices at the start of each mRNA and protein's delay

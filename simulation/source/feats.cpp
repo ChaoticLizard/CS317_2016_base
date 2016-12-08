@@ -59,7 +59,9 @@ int get_peaks_and_troughs1 (sim_data& sd, con_levels& cl, int actual_cell, int t
 		// check if the current point is a trough
 		bool is_peak = true;
 		bool is_trough = true;
-		for (int k = MAX(j - (2 / sd.step_size / sd.big_gran), time_start); k <= MIN(j + 2 / sd.step_size / sd.big_gran, sd.time_end - 1); k++) {
+		int startloop = MAX(j - (2 / sd.step_size / sd.big_gran), time_start);
+		int endloop = MIN(j + 2 / sd.step_size / sd.big_gran, sd.time_end - 1);
+		for (int k = startloop; k <= endloop; k++) {
 			if (conc[j][actual_cell] <= conc[k][actual_cell] && j!=k) {
 				is_peak = false;
 			}
@@ -228,7 +230,7 @@ void osc_features_ant (sim_data& sd, input_params& ip, features& wtfeat, char* f
         }
 		int num_cells_passed = 0;
 		
-		for (int col = start_col; col < end_col; col++) {						
+		for (int col = start_col; col < end_col; col++) {					
 			for (int line = start_line; line < end_line; line++) {
 				int pos = cl.active_start_record[time_start]; // always looking at cell at position active_start because that is the newest cell
 				int cell = line * sd.width_total + pos;
